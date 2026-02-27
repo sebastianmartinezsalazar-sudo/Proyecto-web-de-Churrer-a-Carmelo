@@ -1,0 +1,93 @@
+.carta-page {
+    padding-bottom: 4rem;
+    background-color: var(--bg-color);
+}
+
+.carta-header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.carta-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.carta-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.carta-container {
+    padding: 0 1rem;
+}
+
+.menu-section {
+    margin-bottom: 4rem;
+}
+
+.menu-category-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--primary-color);
+}
+
+.menu-item-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.menu-item-desc {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.carta-footer-note {
+    text-align: center;
+    margin-top: 3rem;
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .carta-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu-category-title {
+        font-size: 1.5rem;
+        display: block;
+        border-bottom: 1px solid var(--primary-color);
+    }
+}

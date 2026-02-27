@@ -1,0 +1,25 @@
+.product-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background: var(--bg-color);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-image {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(230, 126, 34, 0.1);
+    border-radius: 50%;
+    width: 100px;
+    margin: 0 auto 1.5rem;
+}

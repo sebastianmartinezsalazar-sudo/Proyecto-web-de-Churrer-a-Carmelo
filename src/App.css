@@ -1,0 +1,7 @@
+/* App.css is now cleaner, structural styles should go in layout components or specific page css */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

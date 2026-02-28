@@ -77,10 +77,24 @@
   text-align: center;
 }
 
+/* Contenedor para el título con fondo */
+.hero-title-wrapper {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+}
+
 .hero-content h1 {
   font-size: 4rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),0 0 20px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .hero-subtitle {

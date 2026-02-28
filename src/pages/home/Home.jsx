@@ -1,4 +1,5 @@
 // src/pages/home/Home.jsx
+import ProductGrid from '../../components/product-grid/ProductGrid';
 import './Home.css';
 import SpecialtyCard from '../../components/specialty-card/SpecialtyCard';
 import MapComponent from '../../components/map/MapComponent';
@@ -27,17 +28,19 @@ const Home = () => {
 
       {/* 1. Hero Section */}
       <section className="hero-section">
-        <div className="hero-overlay">
-          <div className="hero-content">
-            <h1>Churrería Carmelo</h1>
-            <p className="hero-subtitle">Tradición y sabor en cada bocado</p>
-            <div className="hero-buttons">
-              <a href="/carta" className="btn btn-primary">Ver Carta</a>
-              <a href="/contacto" className="btn btn-secondary">Visítanos</a>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="hero-overlay">
+    <div className="hero-content">
+      <div className="hero-title-wrapper">
+        <h1>Churrería Carmelo</h1>
+      </div>
+      <p className="hero-subtitle">Tradición y sabor en cada bocado</p>
+      <div className="hero-buttons">
+        <a href="/carta" className="btn btn-primary">Ver Carta</a>
+        <a href="/contacto" className="btn btn-secondary">Visítanos</a>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* 2. Intro/Story Section */}
       <section className="section intro-section">
@@ -80,6 +83,12 @@ const Home = () => {
           <div className="center-btn">
             <a href="/carta" className="btn btn-primary">Ver Menú Completo</a>
           </div>
+        </div>
+      </section>
+      <section className="section firebase-products-section">
+        <div className="container">
+          <h2 className="section-title">Nuestros Productos</h2>
+          <ProductGrid />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Carta from './pages/carta/Carta';
 import Contacto from './pages/contacto/Contacto';
 import Blog from './pages/blog/Blog';
 import Layout from './components/layout/Layout';
+import Historia from './pages/historia/Historia';
 import './index.css';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/carta" element={<Carta />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/historia" element={<Historia />} />
         </Routes>
       </Layout>
     </Router>

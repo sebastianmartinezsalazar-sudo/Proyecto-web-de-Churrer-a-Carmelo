@@ -5,6 +5,7 @@ import Contacto from './pages/contacto/Contacto';
 import Blog from './pages/blog/Blog';
 import Layout from './components/layout/Layout';
 import Historia from './pages/historia/Historia';
+import Trabajanos from './pages/trabajanos/Trabajanos';
 import './index.css';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/historia" element={<Historia />} />
+          <Route path="/trabajanos" element={<Trabajanos />} />
         </Routes>
       </Layout>
     </Router>

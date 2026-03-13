@@ -6,6 +6,7 @@ import Blog from './pages/blog/Blog';
 import Layout from './components/layout/Layout';
 import Historia from './pages/historia/Historia';
 import Trabajanos from './pages/trabajanos/Trabajanos';
+import RssPage from './pages/rss/RssPage';
 import './index.css';
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/trabajanos" element={<Trabajanos />} />
+          <Route path="/rss" element={<RssPage />} />
         </Routes>
       </Layout>
     </Router>

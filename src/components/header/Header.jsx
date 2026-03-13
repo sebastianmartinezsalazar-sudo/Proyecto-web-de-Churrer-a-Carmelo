@@ -21,6 +21,7 @@ const Header = () => {
             <li><a href="/carta">Carta</a></li>
             <li><a href="/contacto">Contacto</a></li>
             <li><Link to="/trabajanos">Trabaja con nosotros</Link></li>
+            <li><Link to="/rss">News / RSS</Link></li>
             <li><a href="/blog">Blog</a></li>
           </ul>
         </nav>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Noticias Churrería Carmelo</title>
+    <link>https://churreria-carmelo.web.app</link>
+    <description>Últimas noticias y actualizaciones de Churrería Carmelo</description>
+    <language>es-ES</language>
+    <item>
+      <title>Nuevo Sabor: Churros de Chocolate Blanco</title>
+      <link>https://churreria-carmelo.web.app/noticias/chocolate-blanco</link>
+      <description>Descubre nuestro nuevo sabor exclusivo elaborado con chocolate belga premium. Disponible por tiempo limitado.</description>
+      <pubDate>Mon, 10 Feb 2026 10:00:00 GMT</pubDate>
+      <guid>noticias-chocolate-blanco-2026</guid>
+    </item>
+    <item>
+      <title>Horario Ampliado por Carnaval</title>
+      <link>https://churreria-carmelo.web.app/noticias/horario-carnaval</link>
+      <description>Nos quedamos abiertos hasta tarde durante el Carnaval. Visítanos hasta la medianoche todos los días del 15 al 25 de febrero.</description>
+      <pubDate>Fri, 07 Feb 2026 08:00:00 GMT</pubDate>
+      <guid>noticias-carnaval-2026</guid>
+    </item>
+    <item>
+      <title>Nueva Alianza con Glovo</title>
+      <link>https://churreria-carmelo.web.app/noticias/alianza-glovo</link>
+      <description>Grandes noticias. Ahora puedes pedir nuestros churros a través de Glovo. Entrega rápida a tu hogar u oficina.</description>
+      <pubDate>Wed, 05 Feb 2026 12:00:00 GMT</pubDate>
+      <guid>noticias-glovo-2026</guid>
+    </item>
+  </channel>
+</rss>

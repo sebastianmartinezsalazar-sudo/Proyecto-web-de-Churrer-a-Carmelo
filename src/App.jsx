@@ -7,6 +7,7 @@ import Layout from './components/layout/Layout';
 import Historia from './pages/historia/Historia';
 import Trabajanos from './pages/trabajanos/Trabajanos';
 import RssPage from './pages/rss/RssPage';
+import Pedido from './pages/pedido/Pedido';
 import './index.css';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/historia" element={<Historia />} />
           <Route path="/trabajanos" element={<Trabajanos />} />
           <Route path="/rss" element={<RssPage />} />
+          <Route path="/pedido" element={<Pedido />} />
         </Routes>
       </Layout>
     </Router>

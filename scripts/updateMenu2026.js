@@ -146,7 +146,7 @@ const products = [
   { id: 'pechuga-empanada-papas', name: 'Pechuga Empanada con Papas Fritas', category: 'platos-combinados', price: 8.90, descripcion: 'Pechuga empanada con papas', imageUrl: '/pechuga-empanada-plato.jpg' },
   { id: 'pescado-plancha-papas', name: 'Pescado Plancha con Papas Arrugadas', category: 'platos-combinados', price: 11.50, descripcion: 'Pescado a la plancha con papas arrugadas', imageUrl: '/pescado-plancha-plato.jpg' },
   { id: 'pescado-empanado-papas', name: 'Pescado Empanado con Papas Arrugadas', category: 'platos-combinados', price: 11.90, descripcion: 'Pescado empanado con papas arrugadas', imageUrl: '/pescado-empanado-plato.jpg' },
-  { id: 'filete-atun-papas', name: 'Filete de Atún con Papas Arrugadas', category: 'platos-combinados', price: 11.60, descripcion: 'Filete de atún con papas arrugadas', imageUrl: '/atun-papas.jpg' },
+  { id: 'filete-atun-papas', name: 'Filete de Atún con Papas Arrugadas', category: 'platos-combinados', price: 11.60, descripcion: 'Filete de atún con papas arrugadas', imageUrl: '/Atun.jpg' },
   { id: 'hamburguesa-huevo-papas', name: 'Hamburguesa Huevo y Papas Fritas', category: 'platos-combinados', price: 7.20, descripcion: 'Hamburguesa con huevo y papas', imageUrl: '/hamburguesa-huevo.jpg' },
   { id: 'croquetas-papas', name: 'Croquetas de Pescado/Pollo con Papas', category: 'platos-combinados', price: 7.20, descripcion: 'Croquetas con papas fritas', imageUrl: '/croquetas-plato.jpg' },
   { id: 'papas-fritas-media', name: 'Papas Fritas (Media)', category: 'platos-combinados', price: 3.60, descripcion: 'Media ración de papas fritas', imageUrl: '/papas-fritas.jpg' },

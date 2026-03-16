@@ -1,12 +1,98 @@
-/* ===== Main Page Styles ===== */
+
+
+.qr-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+  text-align: center;
+}
+
+.qr-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(139, 69, 19, 0.2);
+}
+
+.qr-container h2 {
+  color: #8B4513;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.qr-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border: 5px solid #8B4513;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.qr-text {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.qr-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.qr-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+  background: linear-gradient(135deg, #6d360f, #8B4513);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .qr-section {
+    padding: 3rem 1rem;
+  }
+  
+  .qr-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .qr-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .qr-image {
+    max-width: 250px;
+  }
+  
+  .qr-text {
+    font-size: 1rem;
+  }
+  
+  .qr-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
 .trabajanos-page {
   min-height: 100vh;
   background-color: #f8f9fa;
 }
 
-/* ===== Hero Section ===== */
+
 .trabajanos-hero {
-  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  background: linear-gradient(135deg, #8B4513 0%, #a0522d 100%); /* ✅ Marrón elegante */
+  color: white;
   color: #fff;
   padding: 5rem 2rem;
   text-align: center;
@@ -40,14 +126,14 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== Container ===== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* ===== Why Work Section ===== */
+
 .why-work-section {
   padding: 5rem 0;
   background-color: #fff;
@@ -97,7 +183,7 @@
   line-height: 1.6;
 }
 
-/* ===== Opportunities Section ===== */
+
 .opportunities-section {
   padding: 5rem 0;
   background-color: #f8f9fa;
@@ -188,7 +274,7 @@
   margin-top: 2rem;
 }
 
-/* ===== Form Section ===== */
+
 .form-section {
   padding: 5rem 0;
   background-color: #fff;
@@ -273,7 +359,7 @@
   min-height: 120px;
 }
 
-/* File Upload */
+
 .file-upload {
   border: 2px dashed #e67e22;
   border-radius: 8px;
@@ -337,7 +423,7 @@
   font-weight: 600;
 }
 
-/* Submit Button */
+
 .submit-btn {
   width: 100%;
   padding: 1rem 2rem;
@@ -362,7 +448,7 @@
   cursor: not-allowed;
 }
 
-/* ===== Contact Info Section ===== */
+
 .contact-info-section {
   padding: 5rem 0;
   background-color: #1a1a1a;
@@ -411,7 +497,7 @@
   line-height: 1.8;
 }
 
-/* ===== Animations ===== */
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -423,7 +509,7 @@
   }
 }
 
-/* ===== Responsive Design ===== */
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;

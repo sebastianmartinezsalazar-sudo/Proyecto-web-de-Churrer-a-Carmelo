@@ -27,14 +27,14 @@ const Trabajanos = () => {
     const file = e.target.files[0];
     
     if (file) {
-      // Validar tipo de archivo
+      
       const validTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'];
       if (!validTypes.includes(file.type)) {
         alert('Por favor, sube un archivo PDF o imagen (JPG/PNG)');
         return;
       }
       
-      // Validar tamaño máximo (5MB)
+      
       if (file.size > 5 * 1024 * 1024) {
         alert('El archivo no debe superar los 5MB');
         return;
@@ -49,14 +49,14 @@ const Trabajanos = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simular envío (aquí podrías conectar con Firebase o EmailJS)
+    
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // Mostrar mensaje de éxito
+   
     setSubmitStatus('success');
     setIsSubmitting(false);
     
-    // Resetear formulario
+    
     setFormData({
       nombre: '',
       email: '',
@@ -67,13 +67,13 @@ const Trabajanos = () => {
     });
     setCvFile(null);
 
-    // Ocultar mensaje después de 5 segundos
+    
     setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   return (
     <div className="trabajanos-page">
-      {/* Hero Section */}
+      
       <section className="trabajanos-hero">
         <div className="hero-content">
           <h1> Trabaja con Nosotros</h1>
@@ -82,10 +82,11 @@ const Trabajanos = () => {
         </div>
       </section>
 
-      {/* Why Work With Us */}
+      
       <section className="why-work-section">
         <div className="container">
           <h2>¿Por qué trabajar con nosotros?</h2>
+          
           <div className="benefits-grid">
             <div className="benefit-card">
               <div className="benefit-icon">👨‍‍👦</div>
@@ -155,6 +156,30 @@ const Trabajanos = () => {
               </div>
             </div>
             <p className="cta-text">¡Déjanos tu CV y te contactaremos cuando tengamos nuevas vacantes!</p>
+          </div>
+        </div>
+      </section>
+      <section className="qr-section">
+        <div className="container">
+          <div className="qr-container">
+            <h2>📱 Escanea el QR y deja tu currículum</h2>
+            <img 
+              src="/QR.png" 
+              alt="QR para dejar currículum - Churrería Carmelo" 
+              className="qr-image"
+            />
+            <p className="qr-text">
+              ¿Prefieres no llenar el formulario? Escanea el código QR con tu celular 
+              y accede directamente al portal de candidaturas.
+            </p>
+            <a 
+              href="https://www.talentaimpulsa.com/candidatura" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="qr-button"
+            >
+              📄 Acceder al Formulario de Candidatura
+            </a>
           </div>
         </div>
       </section>

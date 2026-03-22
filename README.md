@@ -1,145 +1,132 @@
-# Churrería Carmelo Web Project
+# 🥐 Churrería Carmelo - Web Project
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+> Academic project for **Markup Languages** course - **DAW** (Web Applications Development)  
+> Developed by: **Sebastián Martínez Salazar** | Year: **2026**
 
-![Churrería Carmelo Logo](public/logo.png)
+![Churrería Carmelo](public/Logo-Bar-Churreria-Carmelo.jpg)
 
-> A modern React.js web application for a traditional Canarian churros shop.
-
-[View Demo](https://churreria-carmelo.web.app) · [Report Bug](https://github.com/sebastianmartinezsalazar-sudo/Proyecto-web-de-Churrer-a-Carmelo/issues) · [Request Feature](https://github.com/sebastianmartinezsalazar-sudo/Proyecto-web-de-Churrer-a-Carmelo/issues)
+[🌐 Live Demo](https://churreria-carmelo.web.app) · [📋 Report Issue](https://github.com/sebastianmartinezsalazar-sudo/Proyecto-web-de-Churrer-a-Carmelo/issues)
 
 ---
 
 ## 📋 Table of Contents
 
 <details>
-  <summary>Click to expand</summary>
-  
-  1. [Description](#-description)
-  2. [Screenshots](#-screenshots)
-  3. [Live Demo](#-live-demo)
-  4. [RSS Feed](#-rss-feed)
-  5. [Available Routes](#-available-routes)
-  6. [CRUD Functionality](#-crud-functionality)
-  7. [Features](#-features)
-  8. [Technologies Used](#-technologies-used)
-  9. [Project Structure](#-project-structure)
-  10. [Responsive Design](#-responsive-design)
-  11. [Installation](#-installation)
-  12. [Third-Party Components](#-third-party-components)
-  13. [Tutorials & Resources](#-tutorials--resources)
-  14. [Contributing](#-contributing)
-  15. [License](#-license)
-  16. [Contact](#-contact)
-  17. [Acknowledgments](#-acknowledgments)
+<summary>Click to expand</summary>
+
+1. [Description](#-description)
+2. [Technologies](#-technologies)
+3. [Features](#-features)
+4. [Available Routes](#-available-routes)
+5. [Screenshots](#-screenshots)
+6. [Installation](#-installation)
+7. [Project Structure](#-project-structure)
+8. [Grading Criteria](#-grading-criteria)
+9. [Contact](#-contact)
+
 </details>
 
 ---
 
 ## 📄 Description
 
-This project is a web application for **Churrería Carmelo**, a traditional churrería in Las Palmas de Gran Canaria. The website aims to showcase the menu, the history of the establishment, and provide contact information for customers.
+Modern web application for **Churrería Carmelo**, a traditional churros shop in Las Palmas de Gran Canaria. The website showcases the menu, the establishment's history, and provides contact information for customers.
 
-### Main Page (`/` and `/home`)
-The home page features:
+### Main Features:
 - 🎨 Hero section with call-to-action buttons
-- 🍩 Featured products carousel from JSON data
-- 🔍 Search and filter functionality by category
-- 📱 Fully responsive design using Flexbox and Media Queries
-- ⚡ Fast loading with Vite optimization
+- 🔍 Product search and category filtering
+- 🔐 User authentication with Firebase
+- 📊 Sales statistics charts with D3.js
+- 📱 Fully responsive design (mobile, tablet, desktop)
+- 🗺️ Interactive map with Leaflet
+- 📰 RSS feed reader integration
 
-The page loads on both root URL (`http://localhost:5173`) and `/home` route as required.
+---
+
+## 🛠️ Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| **React 18** | Frontend framework |
+| **Vite** | Build tool & dev server |
+| **Firebase** | Authentication & hosting |
+| **D3.js** | Data visualization (charts) |
+| **React Router** | Client-side routing |
+| **Leaflet** | Interactive maps |
+| **CSS3** | Styling with Flexbox/Grid |
+| **RSS Parser** | RSS feed reader |
+
+---
+
+## ✨ Features
+
+### Core Features
+- ✅ **Responsive Design** - Mobile, tablet & desktop compatible
+- ✅ **Firebase Auth** - User login and registration
+- ✅ **Product Catalog** - Filterable menu by categories
+- ✅ **D3.js Charts** - Sales statistics visualization
+- ✅ **RSS Reader** - External news feed integration
+- ✅ **Interactive Map** - Location with Leaflet
+- ✅ **Real-time Search** - Instant product filtering
+- ✅ **Contact Form** - Job application with CV upload
+
+### Technical Features
+- ✅ Reusable React components
+- ✅ State management with Hooks (`useState`, `useEffect`)
+- ✅ Firebase Firestore data integration
+- ✅ Form validation
+- ✅ Image optimization and lazy loading
+
+---
+
+## 🗺️ Available Routes
+
+| Route | Component | Description |
+|------|-----------|-------------|
+| `/` | Home | Landing page with hero and featured products |
+| `/carta` | Menu | Full menu with filters and search |
+| `/contacto` | Contact | Contact form and interactive map |
+| `/trabajanos` | WorkWithUs | Job application form |
+| `/rss` | RSSFeed | RSS news feed reader |
+| `/login` | Login | User authentication page |
 
 ---
 
 ## 📸 Screenshots
 
-### Home Page
-![Home Page](./screenshots/home.png)
-*Home page with featured products and navigation*
+### 🏠 Home Page
+![Home](./screenshots/home.png)
 
-### Menu / Carta
+### 📋 Menu / Carta
 ![Menu](./screenshots/menu.png)
-*Complete menu with categories, search, and product cards*
 
-### Work With Us
-![Work With Us](./screenshots/trabajanos.png)
-*Job application form with CV upload functionality*
+### 📊 D3.js Statistics
+![Stats](./screenshots/stats.png)
 
-### RSS Feed Reader ⭐
-![RSS Feed](./screenshots/rss-feed.png)
-*RSS feed reader displaying news items with links to detailed pages*
-
-### Contact Page
+### 🗺️ Contact with Map
 ![Contact](./screenshots/contacto.png)
-*Interactive map with Leaflet and contact form*
 
-> 💡 **Note:** To view these screenshots locally, create a `screenshots/` folder in the project root and save your images there.
+### 💼 Work With Us
+![Work](./screenshots/trabajanos.png)
 
----
-
-## 🚀 Live Demo
-
-**Firebase Hosting:** [Churrería Carmelo](https://churreria-carmelo.web.app)
-
-> *Replace with your actual Firebase URL after deployment*
-
-### Quick Access Links:
-| Page | URL |
-|------|-----|
-| Home | `/` or `/home` |
-| Menu | `/carta` |
-| Contact | `/contacto` |
-| Work With Us | `/trabajanos` |
-| RSS Feed | `/rss` |
+> 💡 *To view screenshots locally, create a `screenshots/` folder in the project root.*
 
 ---
 
-## RSS Feed
-![RSS Feed](./screenshots/rss-feed.png)
-*RSS feed reader displaying news items*
+## 📦 Installation
 
-This project includes a fully functional RSS 2.0 compliant news feed.
+```bash
+# 1. Clone the repository
+git clone https://github.com/sebastianmartinezsalazar-sudo/Proyecto-web-de-Churrer-a-Carmelo.git
 
-### Feed Details:
-- **File Location:** `public/rss/news.xml`
-- **App Route:** `/rss`
-- **Production URL:** `https://churreria-carmelo.web.app/rss/news.xml`
+# 2. Navigate to project directory
+cd Proyecto-web-de-Churrer-a-Carmelo
 
-### How It Works:
-1. The RSS feed is generated as a static XML file
-2. The `/rss` page parses and displays feed items
-3. Each item links to a detailed news page within the app
-4. Feed updates automatically when new items are added
+# 3. Install dependencies
+npm install
 
-### Sample RSS Structure:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-  <channel>
-    <title>Churrería Carmelo News</title>
-    <link>https://churreria-carmelo.web.app</link>
-    <description>Latest news and updates from Churrería Carmelo</description>
-    <language>es-ES</language>
-    
-    <item>
-      <title>New Flavor: White Chocolate Churros</title>
-      <link>https://churreria-carmelo.web.app/news/white-chocolate</link>
-      <description>Discover our exclusive new flavor made with premium Belgian chocolate...</description>
-      <pubDate>Mon, 10 Feb 2026 10:00:00 GMT</pubDate>
-      <guid>news-white-chocolate-2026</guid>
-    </item>
-    
-    <item>
-      <title>Extended Hours for Carnival Season</title>
-      <link>https://churreria-carmelo.web.app/news/carnival-hours</link>
-      <description>We're staying open late during Carnival! Visit us until midnight...</description>
-      <pubDate>Fri, 07 Feb 2026 08:00:00 GMT</pubDate>
-      <guid>news-carnival-2026</guid>
-    </item>
-  </channel>
-</rss>
+# 4. Start development server
+npm run dev
+
+# 5. Open in browser
+http://localhost:5173

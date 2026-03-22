@@ -8,6 +8,8 @@ import Historia from './pages/historia/Historia';
 import Trabajanos from './pages/trabajanos/Trabajanos';
 import RssPage from './pages/rss/RssPage';
 import Pedido from './pages/pedido/Pedido';
+import Login from './pages/admin/Login';
+import Upload from './pages/admin/Upload';
 import './index.css';
 import './App.css';
 
@@ -25,6 +27,8 @@ function App() {
           <Route path="/trabajanos" element={<Trabajanos />} />
           <Route path="/rss" element={<RssPage />} />
           <Route path="/pedido" element={<Pedido />} />
+          <Route path="/admin" element={<Login />} />
+        <Route path="/admin/upload" element={<Upload />} />
         </Routes>
       </Layout>
     </Router>

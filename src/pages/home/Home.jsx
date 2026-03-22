@@ -3,6 +3,7 @@ import ProductGrid from '../../components/product-grid/ProductGrid';
 import './Home.css';
 import SpecialtyCard from '../../components/specialty-card/SpecialtyCard';
 import MapComponent from '../../components/map/MapComponent';
+import StatsChart from '../../components/stats/StatsChart';
 
 const specialties = [
   {
@@ -91,6 +92,7 @@ const Home = () => {
           <ProductGrid />
         </div>
       </section>
+      <StatsChart />
 
       {/* 4. Events/Services - Kept as static for now, or could match 3rd item in array */}
 

@@ -10,6 +10,7 @@ import RssPage from './pages/rss/RssPage';
 import Pedido from './pages/pedido/Pedido';
 import Login from './pages/admin/Login';
 import Upload from './pages/admin/Upload';
+import Dashboard from './Dashboard';
 import './index.css';
 import './App.css';
 
@@ -28,7 +29,9 @@ function App() {
           <Route path="/rss" element={<RssPage />} />
           <Route path="/pedido" element={<Pedido />} />
           <Route path="/admin" element={<Login />} />
-        <Route path="/admin/upload" element={<Upload />} />
+          <Route path="/admin/upload" element={<Upload />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+
         </Routes>
       </Layout>
     </Router>

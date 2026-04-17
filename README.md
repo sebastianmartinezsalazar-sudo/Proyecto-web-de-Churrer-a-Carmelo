@@ -113,6 +113,148 @@ Modern web application for **Churrería Carmelo**, a traditional churros shop in
 
 ---
 
+## 📥 Import/Export Data
+
+### Example Files for Import:
+
+- [📄 Download datos.csv](./public/datos.csv)
+- [📄 Download datos.json](./public/datos.json)
+- [📄 Download datos.xml](./public/datos.xml)
+
+### Features:
+
+- ✅ Import products from CSV, JSON, or XML files
+- ✅ Export products to CSV, JSON, or XML format
+- ✅ All data stored in Firebase Firestore
+- ✅ Real-time data synchronization
+
+### How to Use:
+
+1. Go to `/admin/dashboard` (admin access required)
+2. Select the format (CSV, JSON, or XML)
+3. Click "Seleccionar Archivo" to import data
+4. Click "Exportar" to download all products in the selected format
+
+### Supported Formats:
+
+| Format | Import | Export | MIME Type |
+|--------|--------|--------|-----------|
+| CSV | ✅ | ✅ | text/csv |
+| JSON | ✅ | ✅ | application/json |
+| XML | ✅ | ✅ | text/xml |
+---
+## 🔥 Firebase Integration
+
+### Database: Firestore
+
+The application uses **Firebase Firestore** for data storage:
+
+- **Products Collection**: Stores all menu items
+- **Authentication**: User login and registration
+- **Real-time Updates**: Data sync across clients
+
+### Configuration:
+
+Firebase configuration is centralized in `src/services/`:
+- `firebase.js` - Firebase initialization
+- `firebaseProducts.js` - Product CRUD operations
+- `firebaseAuth.js` - Authentication functions
+
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.jsx
+│   │   └── Footer.jsx
+│   └── import-export/
+│       ├── ImportExport.jsx
+│       └── ImportExport.css
+├── pages/
+│   ├── home/
+│   ├── carta/
+│   ├── contacto/
+│   ├── blog/
+│   ├── historia/
+│   ├── trabajanos/
+│   ├── rss/
+│   ├── pedido/
+│   └── admin/
+│       ├── Login.jsx
+│       ├── Upload.jsx
+│       └── Dashboard.jsx
+├── services/
+│   ├── firebase.js
+│   ├── firebaseProducts.js
+│   └── firebaseAuth.js
+├── utils/
+│   ├── file-export.js
+│   └── file-import.js
+├── App.jsx
+└── main.jsx
+
+```
+
+## 🛠️ Features
+
+### Data Management:
+
+- **Import Data**: Upload products from CSV, JSON, or XML files
+- **Export Data**: Download all products in your preferred format
+- **UTF-8 Encoding**: Full support for special characters (ñ, tildes, etc.)
+- **Validation**: Automatic data validation before import
+- **Error Handling**: Clear error messages for invalid data
+
+### Technical Details:
+
+- **CSV Parsing**: Custom parser with field normalization
+- **JSON Handling**: Using JSON.stringify() and JSON.parse()
+- **XML Processing**: DOMParser for XML conversion
+- **File Download**: Blob API with proper MIME types
+
+
+## 🚀 Deployment
+
+This project is deployed on **Firebase Hosting**:
+
+**Live Demo**: https://churreria-carmelo.web.app
+
+
+
+### Deploy Commands:
+
+```bash
+# Build for production
+npm run build
+
+# Deploy to Firebase
+firebase deploy
+
+
+
+## 📚 UT5: CSV Format Tutorial
+
+This project implements the concepts from the **UT5 CSV Tutorial**:
+
+- ✅ Understanding CSV structure and UTF-8 encoding
+- ✅ Importing CSV files in LibreOffice Calc
+- ✅ Exporting data to CSV, JSON, and XML formats
+- ✅ Real-world application in a React + Firebase project
+
+### Related Files:
+
+| File | Purpose |
+|------|---------|
+| `public/datos.csv` | Example CSV file for import |
+| `public/datos.json` | Example JSON file for import |
+| `public/datos.xml` | Example XML file for import |
+| `src/utils/file-import.js` | CSV/JSON/XML parsing functions |
+| `src/utils/file-export.js` | Data export functions |
+| `src/components/import-export/ImportExport.jsx` | UI component for import/export |
+
+
 ## 📦 Installation
 
 ```bash

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+  <producto>
+    <nombre>Chocolate a la Taza</nombre>
+    <precio>1.80</precio>
+    <categoria>Chocolate</categoria>
+    <descripcion>Chocolate espeso estilo español</descripcion>
+  </producto>
+  <producto>
+    <nombre>Churro Clásico</nombre>
+    <precio>0.50</precio>
+    <categoria>Churros</categoria>
+    <descripcion>Churro tradicional hecho a mano</descripcion>
+  </producto>
+  <producto>
+    <nombre>Café Solo</nombre>
+    <precio>1.20</precio>
+    <categoria>Café</categoria>
+    <descripcion>Café espresso solo</descripcion>
+  </producto>
+</productos>

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        
+
         {/* Logo */}
         <div className="header-logo">
           <Link to="/">
@@ -25,6 +25,9 @@ const Header = () => {
           <Link to="/trabajanos">TRABAJA CON NOSOTROS</Link>
           <Link to="/rss">NEWS / RSS 📰</Link>
           <Link to="/blog">BLOG</Link>
+          <Link to="/admin/dashboard" className="nav-link">
+            📊 Admin
+          </Link>
         </nav>
 
         {/* Desktop CTA Button */}
@@ -33,7 +36,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button - Solo visible en móvil */}
-        <button 
+        <button
           className="mobile-menu-btn"
           onClick={() => setShowMenu(!showMenu)}
           type="button"

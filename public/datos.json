@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Chocolate a la Taza",
+    "precio": 1.80,
+    "categoria": "Chocolate",
+    "descripcion": "Chocolate espeso estilo español"
+  },
+  {
+    "nombre": "Churro Clásico",
+    "precio": 0.50,
+    "categoria": "Churros",
+    "descripcion": "Churro tradicional hecho a mano"
+  },
+  {
+    "nombre": "Café Solo",
+    "precio": 1.20,
+    "categoria": "Café",
+    "descripcion": "Café espresso solo"
+  }
+]

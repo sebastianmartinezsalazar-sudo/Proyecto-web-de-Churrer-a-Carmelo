@@ -1,8 +1,33 @@
 // src/services/firebaseProducts.js
 import { db } from '../../firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where, addDoc } from 'firebase/firestore';
 
 const PRODUCTS_COLLECTION = 'products';
+
+export const addProduct = async (product) => {
+  try {
+     // Aceptar tanto 'category' como 'categoria'
+    const categoryValue = product.category || product.categoria || 'Sin categoría';
+    
+    // Validar que no sea undefined o null
+    if (!categoryValue || categoryValue === 'undefined') {
+      throw new Error('El campo category/categoria es requerido');
+    }
+    
+    const docRef = await addDoc(collection(db, PRODUCTS_COLLECTION), {
+      nombre: product.nombre || product.name || 'Sin nombre',
+      precio: parseFloat(product.precio || product.price || 0),
+      category: categoryValue,  // ← Usar el valor validado
+      descripcion: product.descripcion || product.description || '',
+      isAvailable: product.isAvailable !== false,
+      createdAt: new Date().toISOString()
+    });
+    return { id: docRef.id, ...product };
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error;
+  }
+};
 
 /**
  * Fetch all products from Firestore

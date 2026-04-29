@@ -1,8 +1,8 @@
 // src/services/firebaseProducts.js
-import { db } from '../../firebase/config';
+import { db } from '../firebase/config';
 import { collection, getDocs, query, where, addDoc, deleteDoc, doc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from 'firebase/storage';
-import { storage } from '../../firebase/config';
+import { storage } from '../firebase/config';
 
 const PRODUCTS_COLLECTION = 'products';
 const IMAGES_COLLECTION = 'menuImages';

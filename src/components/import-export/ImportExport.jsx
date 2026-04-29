@@ -1,3 +1,4 @@
+// src/components/import-export/ImportExport.jsx
 import { useState } from 'react';
 import { 
   saveFileInFormat, 
@@ -44,21 +45,21 @@ const ImportExport = ({ products }) => {
           break;
       }
       
-      // Guardar en Firebase
+      // Save to Firebase
       for (const item of data) {
         await addProduct({
-          nombre: item.nombre || item.name,
-          precio: parseFloat(item.precio || item.price || 0),
-          categoria: item.categoria || item.category,
-          descripcion: item.descripcion || item.description
+          name: item.name || item.nombre,
+          price: parseFloat(item.price || item.precio || 0),
+          category: item.category || item.categoria,
+          description: item.description || item.descripcion
         });
       }
       
-      alert(` ${data.length} productos importados correctamente`);
+      alert(data.length + ' products imported successfully');
       
     } catch (error) {
       console.error('Error importing:', error);
-      alert('Error al importar: ' + error.message);
+      alert('Error importing: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -69,19 +70,20 @@ const ImportExport = ({ products }) => {
       setLoading(true);
       
       if (!products || products.length === 0) {
-        alert(' No hay productos para exportar');
+        alert('No products to export');
         return;
       }
       
       let content = '';
-      let fileName = `productos-churreria-${new Date().toISOString().split('T')[0]}`;
+      let fileName = 'products-churreria-' + new Date().toISOString().split('T')[0];
       
       switch (exportFormat) {
         case 'csv':
           content = convertToCSV(products);
           break;
         case 'json':
-          content = JSON.stringify(products, null, 2);
+          
+          content = products;
           break;
         case 'xml':
           content = convertToXML(products);
@@ -94,7 +96,7 @@ const ImportExport = ({ products }) => {
       
     } catch (error) {
       console.error('Error exporting:', error);
-      alert(' Error al exportar: ' + error.message);
+      alert('Error exporting: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -102,7 +104,7 @@ const ImportExport = ({ products }) => {
 
   return (
     <div className="import-export-container">
-      <h2> Importar Datos</h2>
+      <h2>Import Data</h2>
       <div className="import-section">
         <select 
           value={importFormat} 
@@ -118,11 +120,11 @@ const ImportExport = ({ products }) => {
           className="btn-import"
           disabled={loading}
         >
-          {loading ? 'Importando...' : ' Seleccionar Archivo'}
+          {loading ? 'Importing...' : 'Select File'}
         </button>
       </div>
 
-      <h2> Exportar Datos</h2>
+      <h2>Export Data</h2>
       <div className="export-section">
         <select 
           value={exportFormat} 
@@ -138,7 +140,7 @@ const ImportExport = ({ products }) => {
           className="btn-export"
           disabled={loading}
         >
-          {loading ? 'Exportando...' : ` Exportar (${products?.length || 0} productos)`}
+          {loading ? 'Exporting...' : 'Export (' + (products?.length || 0) + ' products)'}
         </button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 // src/services/firebaseAuth.js
-import { auth } from '../../firebase/config';
+import { auth } from '../firebase/config';
 import { 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 

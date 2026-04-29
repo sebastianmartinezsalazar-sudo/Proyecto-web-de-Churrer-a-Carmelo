@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
-import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from 'firebase/storage';
-import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
-import { storage, db } from '../../firebase/config';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+// src/pages/admin/Upload.jsx
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Upload.css';
+
+// Centralized Firebase imports from services/
+import { 
+  uploadProductImage, 
+  fetchProductImages, 
+  deleteProductImage 
+} from '../../services/firebaseProducts';
+import { logout } from '../../services/firebaseAuth';
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -13,150 +17,159 @@ const Upload = () => {
   const [uploading, setUploading] = useState(false);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState({ type: '', text: '' });
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchImages();
+    loadImages();
   }, []);
 
-  const fetchImages = async () => {
+  const loadImages = async () => {
     try {
-      const imagesRef = ref(storage, 'images');
-      const result = await listAll(imagesRef);
-      
-      const imagePromises = result.items.map(async (itemRef) => {
-        const url = await getDownloadURL(itemRef);
-        const name = itemRef.name;
-        return { name, url, ref: itemRef };
-      });
-      
-      const imageList = await Promise.all(imagePromises);
+      setLoading(true);
+      const imageList = await fetchProductImages();
       setImages(imageList);
     } catch (error) {
       console.error('Error fetching images:', error);
+      showMessage('error', 'Failed to load images');
     } finally {
       setLoading(false);
     }
   };
 
+  const showMessage = (type, text) => {
+    setMessage({ type, text });
+    setTimeout(() => setMessage({ type: '', text: '' }), 3000);
+  };
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!file || !imageName) {
-      alert('Por favor selecciona una imagen y un nombre');
+    
+    if (!file || !imageName.trim()) {
+      showMessage('error', 'Please select an image and enter a name');
       return;
     }
 
     setUploading(true);
     try {
-      // Subir imagen a Firebase Storage
-      const storageRef = ref(storage, `images/${Date.now()}_${file.name}`);
-      await uploadBytes(storageRef, file);
+      await uploadProductImage(file, imageName.trim());
+      showMessage('success', 'Image uploaded successfully');
       
-      // Obtener URL de descarga
-      const downloadURL = await getDownloadURL(storageRef);
-      
-      // Guardar metadata en Firestore
-      await addDoc(collection(db, 'menuImages'), {
-        name: imageName,
-        url: downloadURL,
-        uploadedAt: new Date().toISOString()
-      });
-
-      alert('¡Imagen subida exitosamente!');
+      // Reset form
       setFile(null);
       setImageName('');
-      fetchImages();
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+      
+      // Refresh image list
+      await loadImages();
     } catch (error) {
       console.error('Error uploading image:', error);
-      alert('Error al subir la imagen: ' + error.message);
+      showMessage('error', 'Upload failed: ' + error.message);
     } finally {
       setUploading(false);
     }
   };
 
   const handleDelete = async (image) => {
-    if (!confirm(`¿Eliminar ${image.name}?`)) return;
+    const confirmed = window.confirm('Delete ' + image.name + '?');
+    if (!confirmed) return;
 
     try {
-      // Eliminar de Storage
-      await deleteObject(image.ref);
-      
-      // Eliminar de Firestore
-      const querySnapshot = await getDocs(collection(db, 'menuImages'));
-      querySnapshot.forEach(async (doc) => {
-        if (doc.data().url === image.url) {
-          await deleteDoc(doc.ref);
-        }
-      });
-
-      alert('Imagen eliminada');
-      fetchImages();
+      await deleteProductImage(image);
+      showMessage('success', 'Image deleted');
+      await loadImages();
     } catch (error) {
       console.error('Error deleting image:', error);
-      alert('Error al eliminar: ' + error.message);
+      showMessage('error', 'Delete failed: ' + error.message);
     }
   };
 
   const handleLogout = async () => {
-    await signOut(auth);
-    navigate('/admin');
+    try {
+      await logout();
+      navigate('/admin');
+    } catch (error) {
+      console.error('Error logging out:', error);
+      showMessage('error', 'Logout failed');
+    }
   };
 
   return (
     <div className="upload-page">
       <div className="admin-header">
-        <h1>📸 CRUD de Imágenes - Churrería Carmelo</h1>
-        <button onClick={handleLogout} className="logout-btn">Cerrar Sesión</button>
+        <h1>Image Management - Churreria Carmelo</h1>
+        <button onClick={handleLogout} className="logout-btn">Sign Out</button>
       </div>
 
-      {/* Formulario de subida */}
+      {/* Status message */}
+      {message.text && (
+        <div className={`status-message ${message.type}`}>
+          {message.text}
+        </div>
+      )}
+
+      {/* Upload form */}
       <div className="upload-section">
-        <h2>Subir Nueva Imagen</h2>
+        <h2>Upload New Image</h2>
         <form onSubmit={handleUpload}>
           <div className="form-group">
-            <label>Nombre del producto:</label>
+            <label htmlFor="imageName">Product Name:</label>
             <input
+              id="imageName"
               type="text"
               value={imageName}
               onChange={(e) => setImageName(e.target.value)}
-              placeholder="Ej: Churros Clásicos"
+              placeholder="Example: Classic Churros"
               required
+              disabled={uploading}
             />
           </div>
           <div className="form-group">
-            <label>Seleccionar imagen:</label>
+            <label htmlFor="imageFile">Select Image:</label>
             <input
+              id="imageFile"
               type="file"
+              ref={fileInputRef}
               accept="image/*"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={handleFileChange}
               required
+              disabled={uploading}
             />
           </div>
-          <button type="submit" disabled={uploading}>
-            {uploading ? 'Subiendo...' : '📤 Subir Imagen'}
+          <button type="submit" disabled={uploading || !file || !imageName.trim()}>
+            {uploading ? 'Uploading...' : 'Upload Image'}
           </button>
         </form>
       </div>
 
-      {/* Galería de imágenes */}
+      {/* Images gallery */}
       <div className="gallery-section">
-        <h2>Galería de Imágenes ({images.length})</h2>
+        <h2>Image Gallery ({images.length})</h2>
+        
         {loading ? (
-          <p>Cargando imágenes...</p>
+          <p className="loading">Loading images...</p>
         ) : images.length === 0 ? (
-          <p>No hay imágenes subidas aún</p>
+          <p className="empty">No images uploaded yet</p>
         ) : (
           <div className="images-grid">
-            {images.map((image, index) => (
-              <div key={index} className="image-card">
-                <img src={image.url} alt={image.name} />
+            {images.map((image) => (
+              <div key={image.url || image.fileName} className="image-card">
+                <img src={image.url} alt={image.name} loading="lazy" />
                 <div className="image-info">
                   <h3>{image.name}</h3>
                   <button 
                     onClick={() => handleDelete(image)}
                     className="delete-btn"
+                    disabled={uploading}
                   >
-                    🗑️ Eliminar
+                    Delete
                   </button>
                 </div>
               </div>
